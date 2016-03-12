@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Database\Showroom.cs" />
     <Compile Include="Database\Worker.cs" />
-    <Compile Include="Logic\AppManager.cs" />
+    <Compile Include="Logic\ShowroomManager.cs" />
     <Compile Include="Database\Car.cs" />
     <Compile Include="Database\CarBrand.cs" />
     <Compile Include="Database\CarModel.cs" />

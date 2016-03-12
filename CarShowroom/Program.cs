@@ -40,6 +40,7 @@ namespace CarShowroom
 			Console.WriteLine("\n");
 
 			var salon1 = new Showroom();
+			salon1.Authenticate(worker1, "kocham_Milene");
 			salon1.AddCar(car1);
 			salon1.AddCar(car2);
 			salon1.AddCar(car3);
@@ -56,8 +57,8 @@ namespace CarShowroom
 			salon1.ContactClients();
 
 			Console.WriteLine("\n");
-			var manager = new AppManager();
-			manager.SellCar(client1, salon1, car1);
+			var manager = new ShowroomManager();
+			manager.SellCar(client1, salon1, 2);
 
 			//idle
 			Console.ReadKey();

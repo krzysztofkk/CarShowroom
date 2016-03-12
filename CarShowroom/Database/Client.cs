@@ -5,16 +5,15 @@ namespace CarShowroom.Database
 {
 	public class Client : Person
 	{
-		private List<Car> Cars { get; set; }
+		public List<Car> Cars = new List<Car>();
 
-		public Client(string fullName, string telNumber) : base(fullName, telNumber)
+		public Client(string fullName, string phoneNumber) : base(fullName, phoneNumber)
 		{
-			Cars = new List<Car>();
 		}
 
 		public void AddCar(Car car)
 		{
-			Cars?.Add(car);
+			Cars.Add(car);
 			Console.WriteLine("Added {0} {1} from year {2} to {3}'s car list.", car.CarModel.Brand.Name, 
 				car.CarModel.Name, car.CarModel.Year, FullName);
 		}

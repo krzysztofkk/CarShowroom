@@ -13,7 +13,7 @@ namespace CarShowroom.Database
 			private set { _position = value; }
 		}
 
-		public Worker(string fullName, string telNumber, int salary) : base(fullName, telNumber)
+		public Worker(string fullName, string phoneNumber, int salary) : base(fullName, phoneNumber)
 		{
 			Salary = salary;
 		}
@@ -29,9 +29,10 @@ namespace CarShowroom.Database
 
 		public void CheckInfo()
 		{
-			Console.WriteLine("Full name: {0}", base.FullName);
-			Console.WriteLine("Job: {0}", Position);
-			Console.WriteLine("Salary: {0}", Salary);
+			Console.WriteLine("\tSTAFF MEMBER INFO");
+			Console.WriteLine("\tFull name: {0}", base.FullName);
+			Console.WriteLine("\tJob: {0}", Position);
+			Console.WriteLine("\tSalary: {0}", Salary);
 		}
 	}
 }
