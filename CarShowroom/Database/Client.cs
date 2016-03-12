@@ -7,7 +7,7 @@ namespace CarShowroom.Database
 	{
 		private List<Car> Cars { get; set; }
 
-		public Client(string fullName, int telNumber) : base(fullName, telNumber)
+		public Client(string fullName, string telNumber) : base(fullName, telNumber)
 		{
 			Cars = new List<Car>();
 		}

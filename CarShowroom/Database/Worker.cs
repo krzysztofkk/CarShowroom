@@ -13,7 +13,7 @@ namespace CarShowroom.Database
 			private set { _position = value; }
 		}
 
-		public Worker(string fullName, int telNumber, int salary) : base(fullName, telNumber)
+		public Worker(string fullName, string telNumber, int salary) : base(fullName, telNumber)
 		{
 			Salary = salary;
 		}

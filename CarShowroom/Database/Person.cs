@@ -4,9 +4,9 @@ namespace CarShowroom.Database
 	{
 
 		public string FullName { get; set; }
-		public int TelNumber { get; set; }
+		public string TelNumber { get; set; }
 
-		public Person(string fullName, int telNumber)
+		public Person(string fullName, string telNumber)
 		{
 			FullName = fullName;
 			TelNumber = telNumber;

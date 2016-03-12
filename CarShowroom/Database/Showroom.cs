@@ -5,8 +5,8 @@ namespace CarShowroom.Database
 {
 	public class Showroom
 	{
-		public List<Worker> Workers;
-		public List<Client> Clients;
+		public List<Worker> Workers = new List<Worker>();
+		public List<Client> Clients = new List<Client>();
 		public List<Car> Cars = new List<Car>();
 		public DateTime LastModified;
 
@@ -20,17 +20,24 @@ namespace CarShowroom.Database
 		{
 			LastModified = DateTime.Now;
 			Cars.Remove(car);
+			Console.WriteLine("Removed {0} {1} from showroom.", car.CarModel.Brand.Name, car.CarModel.Name);
 		}
 
 		public void ListCars()
 		{
 			int n = 0;
+			Console.WriteLine("Last modification: {0}", LastModified);
 			foreach (Car c in Cars)
 			{
-				Console.WriteLine("Last modification: {0}", LastModified);
 				n++;
 				Console.WriteLine("No. #{0}: {1} {2} from {3}", n, c.CarModel.Brand.Name, c.CarModel.Name, c.CarModel.Year);
 			}
+		}
+
+		public void ContactClients()
+		{
+			foreach(Client c in Clients)
+				Console.WriteLine("{0} {1}", c.FullName, c.TelNumber);
 		}
 
 	}
