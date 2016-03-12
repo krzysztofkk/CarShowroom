@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Showroom.cs" />
+    <Compile Include="Database\Worker.cs" />
+    <Compile Include="Logic\AppManager.cs" />
     <Compile Include="Database\Car.cs" />
     <Compile Include="Database\CarBrand.cs" />
     <Compile Include="Database\CarModel.cs" />
@@ -54,6 +57,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
