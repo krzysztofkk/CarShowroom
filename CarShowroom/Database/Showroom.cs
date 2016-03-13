@@ -5,13 +5,13 @@ namespace CarShowroom.Database
 {
 	public class Showroom
 	{
-		public List<Worker> Workers = new List<Worker>();
-		public List<Client> Clients = new List<Client>();
-		public List<Car> AvailableCars = new List<Car>();
-		public DateTime LastModified;
-		public Worker ActiveWorker = new Worker("unknown", "unknown", 0);
-		public bool Authenticated;
+		private List<Worker> Workers = new List<Worker>();
+		private List<Client> Clients = new List<Client>();
+		private List<Car> AvailableCars = new List<Car>();
+		private Worker ActiveWorker = new Worker("unknown", "unknown", 0);
 		private const string PassCode = "kocham_Milene";
+		public bool Authenticated;
+		public DateTime LastModified;
 
 		public void Authenticate(Worker worker, string passcode)
 		{
@@ -25,6 +25,11 @@ namespace CarShowroom.Database
 			{
 				Console.WriteLine("Authentication failed - wrong passcode.");
 			}
+		}
+
+		public Car FindCar(int carId)
+		{
+			return AvailableCars.Find(x => x.Id == carId);
 		}
 
 		public void AddCar(Car car)
@@ -48,7 +53,7 @@ namespace CarShowroom.Database
 			foreach (var c in AvailableCars)
 			{
 				n++;
-				Console.WriteLine("{0}. ID: [{4}] - {1} {2} from {3}", n, c.CarModel.Brand.Name, c.CarModel.Name, c.CarModel.Year, c.Id);
+				Console.WriteLine("{5}. ID: {0} - {1} {2}, {3}, VIN: {4}", c.Id, c.CarModel.Name, c.CarModel.Brand.Name, c.CarModel.Year, c.VIN, n);
 			}
 		}
 
@@ -58,5 +63,10 @@ namespace CarShowroom.Database
 				Console.WriteLine("{0} {1}", c.FullName, c.PhoneNumber);
 		}
 
+		public void AddClient(Client client)
+		{
+			Clients.Add(client);
+			Console.WriteLine("Added {0} to client list. ({1})", client.FullName, ActiveWorker.FullName);
+		}
 	}
 }

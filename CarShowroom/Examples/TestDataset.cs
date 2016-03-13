@@ -63,7 +63,7 @@ namespace CarShowroom.Examples
 			salon1.AddCar(car2);
 			salon1.AddCar(car3);
 			salon1.AddCar(car4);
-			salon1.Clients.Add(client1);
+			salon1.AddClient(client1);
 
 			//client1.CountCars();
 			//client1.PrintCars();

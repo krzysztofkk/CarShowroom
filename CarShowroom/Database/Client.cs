@@ -5,7 +5,7 @@ namespace CarShowroom.Database
 {
 	public class Client : Person
 	{
-		public List<Car> OwnedCars = new List<Car>();
+		private List<Car> OwnedCars = new List<Car>();
 
 		public Client(string fullName, string phoneNumber) : base(fullName, phoneNumber)
 		{

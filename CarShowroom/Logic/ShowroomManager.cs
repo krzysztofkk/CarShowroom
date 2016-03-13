@@ -15,20 +15,19 @@ namespace CarShowroom.Logic
 		public void ListCars(Showroom showroom)
 		{
 			Console.WriteLine("[Trying to ListCars]");
-			foreach (var c in showroom.AvailableCars)
-				Console.WriteLine("ID: {0} - {1} {2}, {3}, VIN: {4}", c.Id, c.CarModel.Name, c.CarModel.Brand.Name, c.CarModel.Year, c.VIN);
+			showroom.ListCars();
 		}
 
 		public Car FindCar(Showroom showroom, int carId)
 		{
 			Console.WriteLine("[Trying to FindCar]");
-			return showroom.AvailableCars.Find(x => x.Id == carId);
+			return showroom.FindCar(carId);
 		}
 
 		public void SellCar(Showroom showroom, Client client, int id)
 		{
 			Console.WriteLine("[Trying to SellCar]");
-			var car = showroom.AvailableCars.Find(x => x.Id == id);
+			var car = showroom.FindCar(id);
 			if (car != null && showroom.Authenticated)
 			{
 				showroom.RemoveCar(car);
@@ -59,9 +58,5 @@ namespace CarShowroom.Logic
 			showroom.AddCar(car);
 			Console.WriteLine("Succesfully added {0} {1} to the showroom!\n", car.CarModel.Brand.Name, car.CarModel.Name);
 		}
-
-
-
-
 	}
 }
