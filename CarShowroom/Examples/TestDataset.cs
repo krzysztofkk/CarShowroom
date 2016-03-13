@@ -47,14 +47,16 @@ namespace CarShowroom.Examples
 		public static Showroom salon1 = new Showroom();
 		public static Showroom salon2 = new Showroom();
 
-		public static void Run()
+		public static void Run(bool mode)
 		{
-			Console.WriteLine("### PERFORMING TEST OPERATIONS ###");
 			// ### CONSOLE MUTE ###
 			var std = Console.Out;
-			Console.SetOut(TextWriter.Null);
+			if (!mode)
+				Console.SetOut(TextWriter.Null);
+			// ### CONSOLE MUTE ###
 
 
+			Console.WriteLine("### PERFORMING TEST OPERATIONS ###");
 			//fill some data into instances
 			client1.AddCar(car6);
 
@@ -72,12 +74,12 @@ namespace CarShowroom.Examples
 			//salon1.RemoveCar(car2);
 			//salon1.ListCars();
 			//salon1.ContactClients();
-
-			// ### CONSOLE UNMUTE ###
-			Console.SetOut(std);
 			Console.WriteLine("### TEST OPERATIONS FINISHED ###\n");
 
-
+			// ### CONSOLE UNMUTE ###
+			if (!mode)
+				Console.SetOut(std);
+			// ### CONSOLE UNMUTE ###
 		}
 	}
 }
