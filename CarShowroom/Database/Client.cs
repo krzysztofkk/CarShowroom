@@ -5,7 +5,7 @@ namespace CarShowroom.Database
 {
 	public class Client : Person
 	{
-		public List<Car> Cars = new List<Car>();
+		public List<Car> OwnedCars = new List<Car>();
 
 		public Client(string fullName, string phoneNumber) : base(fullName, phoneNumber)
 		{
@@ -13,22 +13,22 @@ namespace CarShowroom.Database
 
 		public void AddCar(Car car)
 		{
-			Cars.Add(car);
+			OwnedCars.Add(car);
 			Console.WriteLine("Added {0} {1} from year {2} to {3}'s car list.", car.CarModel.Brand.Name, 
 				car.CarModel.Name, car.CarModel.Year, FullName);
 		}
 
 		public void CountCars()
 		{
-			Console.WriteLine("{0} has {1} cars.", FullName, Cars.Count);
+			Console.WriteLine("{0} has {1} cars.", FullName, OwnedCars.Count);
 		}
 
 		public void PrintCars()
 		{
-			if (Cars.Count > 0)
+			Console.WriteLine("{0}'s CAR LIST:", FullName);
+			if (OwnedCars.Count > 0)
 			{
-				Console.WriteLine("CAR LIST:");
-				foreach (var c in Cars)
+				foreach (var c in OwnedCars)
 					Console.WriteLine("{0} {1}, {2}, VIN: {3}", c.CarModel.Brand.Name, c.CarModel.Name, c.CarModel.Year, c.VIN);
 			}
 			else

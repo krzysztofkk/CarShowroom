@@ -7,9 +7,10 @@ namespace CarShowroom.Database
 	{
 		public List<Worker> Workers = new List<Worker>();
 		public List<Client> Clients = new List<Client>();
-		public List<Car> Cars = new List<Car>();
+		public List<Car> AvailableCars = new List<Car>();
 		public DateTime LastModified;
 		public Worker ActiveWorker = new Worker("unknown", "unknown", 0);
+		public bool Authenticated;
 		private const string PassCode = "kocham_Milene";
 
 		public void Authenticate(Worker worker, string passcode)
@@ -17,6 +18,7 @@ namespace CarShowroom.Database
 			if (passcode == PassCode)
 			{
 				ActiveWorker = worker;
+				Authenticated = true;
 				Console.WriteLine("Authentication succesfull.");
 			}
 			else
@@ -28,21 +30,22 @@ namespace CarShowroom.Database
 		public void AddCar(Car car)
 		{
 			LastModified = DateTime.Now;
-			Cars.Add(car);
+			AvailableCars.Add(car);
+			Console.WriteLine("Added {0} {1} to showroom. ({2}", car.CarModel.Brand.Name, car.CarModel.Name, ActiveWorker.FullName);
 		}
 
 		public void RemoveCar(Car car)
 		{
 			LastModified = DateTime.Now;
-			Cars.Remove(car);
-			Console.WriteLine("Removed {0} {1} from showroom.", car.CarModel.Brand.Name, car.CarModel.Name);
+			AvailableCars.Remove(car);
+			Console.WriteLine("Removed {0} {1} from showroom. ({2}", car.CarModel.Brand.Name, car.CarModel.Name, ActiveWorker);
 		}
 
 		public void ListCars()
 		{
 			int n = 0;
 			Console.WriteLine("Last modification: {0} by {1}", LastModified, ActiveWorker.FullName);
-			foreach (var c in Cars)
+			foreach (var c in AvailableCars)
 			{
 				n++;
 				Console.WriteLine("{0}. ID: [{4}] - {1} {2} from {3}", n, c.CarModel.Brand.Name, c.CarModel.Name, c.CarModel.Year, c.Id);

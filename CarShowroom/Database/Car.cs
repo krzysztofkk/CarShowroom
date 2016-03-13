@@ -2,7 +2,7 @@ namespace CarShowroom.Database
 {
 	public class Car
 	{
-		private static int _numberOfCars = 0;
+		private static int _numberOfCars;
 		public int Id { get; private set; }
 		public CarModel CarModel { get; set; }
 		public string VIN { get; set; }

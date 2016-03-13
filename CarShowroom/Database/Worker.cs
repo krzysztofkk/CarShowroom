@@ -30,7 +30,7 @@ namespace CarShowroom.Database
 		public void CheckInfo()
 		{
 			Console.WriteLine("\tSTAFF MEMBER INFO");
-			Console.WriteLine("\tFull name: {0}", base.FullName);
+			Console.WriteLine("\tFull name: {0}", FullName);
 			Console.WriteLine("\tJob: {0}", Position);
 			Console.WriteLine("\tSalary: {0}", Salary);
 		}
