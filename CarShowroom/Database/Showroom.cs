@@ -31,14 +31,14 @@ namespace CarShowroom.Database
 		{
 			LastModified = DateTime.Now;
 			AvailableCars.Add(car);
-			Console.WriteLine("Added {0} {1} to showroom. ({2}", car.CarModel.Brand.Name, car.CarModel.Name, ActiveWorker.FullName);
+			Console.WriteLine("Added {0} {1} to showroom. ({2})", car.CarModel.Brand.Name, car.CarModel.Name, ActiveWorker.FullName);
 		}
 
 		public void RemoveCar(Car car)
 		{
 			LastModified = DateTime.Now;
 			AvailableCars.Remove(car);
-			Console.WriteLine("Removed {0} {1} from showroom. ({2}", car.CarModel.Brand.Name, car.CarModel.Name, ActiveWorker);
+			Console.WriteLine("Removed {0} {1} from showroom. ({2})", car.CarModel.Brand.Name, car.CarModel.Name, ActiveWorker.FullName);
 		}
 
 		public void ListCars()
